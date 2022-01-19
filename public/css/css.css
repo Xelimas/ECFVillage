@@ -1,0 +1,31 @@
+/* Show it is fixed to the top */
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+
+#calendrier{
+  width: 50%;
+  margin: auto;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+/* #sectionPhoto {
+    margin-top: 60px;
+} */
+
+#booked-wzsp-day-dergee-name{
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
