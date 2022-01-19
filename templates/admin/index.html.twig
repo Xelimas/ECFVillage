@@ -1,7 +1,25 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block title %}Administration{%
+endblock %} {% form_theme formActu 'bootstrap_5_layout.html.twig' %} {% block
+body %}
+<div class="container">
+  <div class="row">
+    <div class="container text-center mt-5 col-5">
+      <h2>Ajout d'une actualitée</h2>
+      {{ form_start(formActu) }}
 
-{% block title %}Hello AdminController!{% endblock %}
+      {{ form_row(formActu.titre, {'attr': {'placeholder': "Le titre de l'actualité"
+      }}) }}
+      {{ form_row(formActu.contenu, {'attr': {'placeholder': "Le contenu de l'actualité"
+      }}) }}
+      {{ form_row(formActu.file, {'attr': {'placeholder': "votre image"}}) }}
 
-{% block body %}
-
+      <button class="btn btn-success" type="submit">Envoyer</button>
+      {{ form_end(formActu) }}
+    </div>
+    <div class="container text-center mt-5 col-5">
+      <h2>Ajout d'un événement</h2>
+      <div id="calendrier"></div>
+    </div>
+  </div>
+</div>
 {% endblock %}
