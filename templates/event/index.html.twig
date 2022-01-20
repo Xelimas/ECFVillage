@@ -1,7 +1,32 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello EventController!{% endblock %}
-
-{% block body %}
-<h1>Evenements</h1>
-{% endblock %}
+{% extends 'base.html.twig' %} {% block title %}Hello ActuController!{% endblock
+    %} {% block body %}
+    
+    <div class="container mt-5 text-center">
+      <h2>Les événements du Village</h2>
+      <div class="row">
+        {% for event in events %}
+      <div class="text-center container col-4">
+        
+        <article class="card mt-3">
+          <h5>{{ event.titre }}</h5>
+          <div class="metadata">
+            Ecrit le {{ event.createdAt | date('d/m/Y') }} à
+            {{ event.createdAt | date('H:i') }}
+          </div>
+          
+          <div class="card-body">
+            <img class="img-fluid" src="{{ event.file }}" alt="" />
+            <div class="card-text">{{ event.contenu | raw }}</div>
+            {% if app.user %}
+            <button class="btn btn-success mt-2">Modifier l'article</button>
+          </div>
+          {% endif %}
+        </article>
+    </div>
+        {% endfor %}
+    
+      </div>
+      
+    </div>
+    
+    {% endblock %}

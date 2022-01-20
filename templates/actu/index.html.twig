@@ -1,7 +1,32 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block title %}Hello ActuController!{% endblock
+%} {% block body %}
 
-{% block title %}Hello ActuController!{% endblock %}
+<div class="container mt-5 text-center">
+  <h2>Les actualités du Village</h2>
+  <div class="row">
+    {% for actu in actues %}
+  <div class="text-center container col-4">
+    
+    <article class="card mt-3">
+      <h5>{{ actu.titre }}</h5>
+      <div class="metadata">
+        Ecrit le {{ actu.createdAt | date('d/m/Y') }} à
+        {{ actu.createdAt | date('H:i') }}
+      </div>
+      
+      <div class="card-body">
+        <img class="img-fluid" src="{{ actu.file }}" alt="" />
+        <div class="card-text">{{ actu.contenu | raw }}</div>
+        {% if app.user %}
+        <a href="{{ path('admin_edit', {'id': actu.id}) }}" class="btn btn-success mt-2">Modifier l'article</a>
+      </div>
+      {% endif %}
+    </article>
+</div>
+    {% endfor %}
 
-{% block body %}
-<h1> actualité</h1>
+  </div>
+  
+</div>
+
 {% endblock %}

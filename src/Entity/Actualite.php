@@ -49,7 +49,7 @@ class Actualite
 
     public function setTitre(string $titre): self
     {
-        $this->Titre = $titre;
+        $this->titre = $titre;
 
         return $this;
     }

@@ -1,16 +1,21 @@
-{% extends 'base.html.twig' %} {% block title %}Administration{%
-endblock %} {% form_theme formActu 'bootstrap_5_layout.html.twig' %} {% block
-body %}
+{% extends 'base.html.twig' %} 
+
+{% block title %}Administration{% endblock %} 
+
+{% form_theme formActu 'bootstrap_5_layout.html.twig' %} 
+{% form_theme formEvent 'bootstrap_5_layout.html.twig' %} 
+
+{% block body %}
 <div class="container">
   <div class="row">
     <div class="container text-center mt-5 col-5">
       <h2>Ajout d'une actualitée</h2>
       {{ form_start(formActu) }}
 
-      {{ form_row(formActu.titre, {'attr': {'placeholder': "Le titre de l'actualité"
-      }}) }}
-      {{ form_row(formActu.contenu, {'attr': {'placeholder': "Le contenu de l'actualité"
-      }}) }}
+      {{ form_row(formActu.titre, {'attr': {'placeholder': "Le titre de l'actualité"}}) }}
+        
+      {{ form_row(formActu.contenu, {'attr': {'placeholder': "Le contenu de l'actualité"}}) }}
+      
       {{ form_row(formActu.file, {'attr': {'placeholder': "votre image"}}) }}
 
       <button class="btn btn-success" type="submit">Envoyer</button>
@@ -18,7 +23,16 @@ body %}
     </div>
     <div class="container text-center mt-5 col-5">
       <h2>Ajout d'un événement</h2>
-      <div id="calendrier"></div>
+      {{ form_start(formEvent) }}
+
+      {{ form_row(formEvent.titre, {'attr': {'placeholder': "Le titre de l'événement"}}) }}
+        
+      {{ form_row(formEvent.contenu, {'attr': {'placeholder': "Le contenu de l'événement"}}) }}
+      
+      {{ form_row(formEvent.file, {'attr': {'placeholder': "votre image"}}) }}
+
+      <button class="btn btn-success" type="submit">Envoyer</button>
+      {{ form_end(formEvent) }}
     </div>
   </div>
 </div>
