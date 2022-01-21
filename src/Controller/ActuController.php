@@ -25,4 +25,6 @@ class ActuController extends AbstractController
             'actues' => $actues
         ]);
     }
+
+    
 }

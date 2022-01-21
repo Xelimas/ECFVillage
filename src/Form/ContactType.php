@@ -6,6 +6,8 @@ use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
+use Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptcha;
 
 class ContactType extends AbstractType
 {
@@ -17,6 +19,14 @@ class ContactType extends AbstractType
             ->add('telephone')
             ->add('email')
             ->add('contenu')
+            ->add('captchaCode', CaptchaType::class, [
+                'captchaConfig'=>'ExampleCaptcha',
+                'constraints'=>[
+                    new ValidCaptcha([
+                        'message'=>'Captcha invalide'
+                    ])
+                ]
+            ])
         ;
     }
 

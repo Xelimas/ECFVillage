@@ -116,4 +116,42 @@ class AdminController extends AbstractController
             'formEvent'=> $formEvent->createView()
         ]);
     }
+
+    /**
+     * @Route("/admin/{id}/supprimerActu", name="supprimer_actu")
+     */
+    public function supprimerActu(Actualite $actualite,ActualiteRepository $repoActu,EntityManagerInterface $manager): Response
+    {
+        $actues = $repoActu->findBy([], array(),$actualite->getId());
+
+        $manager->remove($actualite);
+        $manager->flush();
+
+        return $this->redirectToRoute('actu');
+
+
+        return $this->render('actu/index.html.twig', [
+            'controller_name' => 'ActuController',
+            'actues' => $actues
+        ]);
+    }
+
+    /**
+     * @Route("/admin/{id}/supprimerEvent", name="supprimer_event")
+     */
+    public function supprimerEvent(Evenement $evenement,EvenementRepository $repoEvent, EntityManagerInterface $manager): Response
+    {
+        $events = $repoEvent->findBy([], array(),$evenement->getId());
+
+        $manager->remove($evenement);
+        $manager->flush();
+
+        return $this->redirectToRoute('event');
+
+
+        return $this->render('actu/index.html.twig', [
+            'controller_name' => 'ActuController',
+            'events' => $events
+        ]);
+    }
 }

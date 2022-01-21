@@ -19,6 +19,7 @@
         <div class="card-text">{{ actu.contenu | raw }}</div>
         {% if app.user %}
         <a href="{{ path('admin_edit_actu', {'id': actu.id}) }}" class="btn btn-success mt-2">Modifier l'article</a>
+        <a href="{{ path('supprimer_actu', {'id': actu.id}) }}" class="btn btn-danger mt-2">Supprimer l'article</a>
       </div>
       {% endif %}
     </article>
