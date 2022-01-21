@@ -18,7 +18,7 @@
             <img class="img-fluid" src="{{ event.file }}" alt="" />
             <div class="card-text">{{ event.contenu | raw }}</div>
             {% if app.user %}
-            <button class="btn btn-success mt-2">Modifier l'article</button>
+            <a href="{{ path('admin_edit_event', {'id': event.id}) }}" class="btn btn-success mt-2">Modifier l'article</a>
           </div>
           {% endif %}
         </article>

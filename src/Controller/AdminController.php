@@ -7,6 +7,7 @@ use App\Entity\Evenement;
 use App\Form\ActualiteType;
 use App\Form\EvenementType;
 use App\Repository\ActualiteRepository;
+use App\Repository\EvenementRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -57,16 +58,19 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/{id}/edit", name="admin_edit")
+     * @Route("/admin/{id}/editActu", name="admin_edit_actu")
      */
-    public function edit(Actualite $actualite,ActualiteRepository $repoActu, Request $request, EntityManagerInterface $manager)
+    public function editActu(Actualite $actualite,ActualiteRepository $repoActu, Request $request, EntityManagerInterface $manager)
     {
+
         $actu = $repoActu->findBy([], array(),$actualite->getId());
+        
         $formActu = $this->createForm(ActualiteType::class, $actualite);
+        
         $formActu->handleRequest($request);
+       
 
         if($formActu->isSubmitted() && $formActu->isValid()) {
-
 
             $manager->persist($actualite);
             $manager->flush();
@@ -74,10 +78,42 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('admin/edit.html.twig', [
+        
+
+        return $this->render('admin/editActu.html.twig', [
             'controller_name' => 'AdminController',
-            'actues'=> $actu,
+            'actues'=> $actu,            
             'formActu' => $formActu->createView()
+            
+        ]);
+    }
+
+    /**
+     * @Route("/admin/{id}/editEvent", name="admin_edit_event")
+     */
+    public function edit(Evenement $evenement,EvenementRepository $repoEvent, Request $request, EntityManagerInterface $manager)
+    {
+        
+        $event = $repoEvent->findBy([], array(), $evenement->getId());
+        
+        $formEvent = $this->createForm(EvenementType::class, $evenement);
+        
+        $formEvent->handleRequest($request);
+
+        
+
+        if($formEvent->isSubmitted() && $formEvent->isValid()) {
+
+            $manager->persist($evenement);
+            $manager->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('admin/editEvent.html.twig', [
+            'controller_name' => 'AdminController',
+            'events'=> $event,
+            'formEvent'=> $formEvent->createView()
         ]);
     }
 }

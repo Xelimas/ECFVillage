@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %} 
+
+  
+{% form_theme formEvent 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+   
+    <div class="container text-center mt-5 col-5">
+      <h2>faites vos modifications sur les événements</h2>
+      {{ form_start(formEvent) }}
+
+      {{ form_row(formEvent.titre, {'attr': {'placeholder': "Le titre de l'Evenement"}}) }}
+        
+      {{ form_row(formEvent.contenu, {'attr': {'placeholder': "Le contenu de l'evenement"}}) }}
+      
+      {{ form_row(formEvent.file, {'attr': {'placeholder': "votre image"}}) }}
+
+      <button class="btn btn-success" type="submit">Modifier</button>
+      {{ form_end(formEvent) }}
+    </div>
+    
+    {% endblock body %}

@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %} 
-{% form_theme formActu 'bootstrap_5_layout.html.twig' %} 
+
+{% form_theme formActu 'bootstrap_5_layout.html.twig' %}
+ 
 
 {% block body %}
 <div class="container">
-  <div class="row">
+  <div class="row"> 
+    
     <div class="container text-center mt-5 col-5">
-      <h2>faites vos modifications</h2>
+      <h2>faites vos modifications sur les actualités</h2>
       {{ form_start(formActu) }}
 
       {{ form_row(formActu.titre, {'attr': {'placeholder': "Le titre de l'actualité"}}) }}
@@ -14,10 +17,8 @@
       
       {{ form_row(formActu.file, {'attr': {'placeholder': "votre image"}}) }}
 
-      <button class="btn btn-success" type="submit">Envoyer</button>
+      <button class="btn btn-success" type="submit">Modifier</button>
       {{ form_end(formActu) }}
     </div>
 
-    
-        
     {% endblock body %}
