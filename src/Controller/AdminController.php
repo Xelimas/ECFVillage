@@ -127,6 +127,7 @@ class AdminController extends AbstractController
         $manager->remove($actualite);
         $manager->flush();
 
+
         return $this->redirectToRoute('actu');
 
 
