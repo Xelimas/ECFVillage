@@ -1,5 +1,31 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block body %}
 
-{% block body %}
-    <h2>Voici l'histoire du Village</h2>
+<div class="container">
+  <div class="row">
+    <div class="card container bg-light mb-3 mt-4 col-8">
+      <div class="card-header">
+        <h2 class="card-title text-center">Voici l'histoire du Village</h2>
+      </div>
+      <div class="card-body">
+        <p class="card-text mt-4">
+          Village autrefois rattaché au bailliage de Boulay. Était le siège
+          d'une seigneurie, fief mouvant du duché de Lorraine sous la
+          châtellenie d'Amance en 1594, puis de l'évêché de Metz en 1683.
+          Ancienne cure de l'archiprêtré d'Haboudange. En 1093 fut fondé un
+          prieuré de Cluny qui dura jusqu'en 1602. Il existait un château qui
+          appartint au comte de Dabo, aux Varsberg, puis aux Fénétrange. Un
+          nouveau château fut construit à la fin xvie siècle par le marquis de
+          Havré, il fut incendié en 1635. Fut érigée en 1790 en siège d'un
+          canton du district de Morhange. Dès 1950 Thicourt a bénéficié d'une
+          position altimétrique favorable pour l'installation d'une station
+          militaire Radio, par excellence le Détachement Air 81/128 rattaché à
+          la base aérienne de Metz. Cette station avait pour but d'assister
+          l'atterrissage des avions à réaction de METZ Frescaty quand
+          nécessaire, elle a fermé en 1966.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock body %}
