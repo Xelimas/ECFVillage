@@ -10,7 +10,7 @@ Le secrétaire de mairie doit être en mesure d'ajouter, modifier ou supprimer d
 
 ## Objectif 
 
-- On voudra afficher la météo du jour sur la page d'accueil (API)
+- On voudra afficher la météo du jour sur la page d'accueil : FAIT
 
 - Pages : 
     - Accueil avec les évènements / actualité à venir : FAIT
