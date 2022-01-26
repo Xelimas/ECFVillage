@@ -6,8 +6,10 @@
     <div class="text-center container col-5">
       <h2>Les dernières actualités</h2>
       {% for actu in actues %}
-      <article class="card mt-3">
+      <article class="card bg-light mt-3">
+        <div class="card-header">
         <h5>{{ actu.titre }}</h5>
+      </div>
         <div class="metadata">
           Ecrit le {{ actu.createdAt | date('d/m/Y') }} à
           {{ actu.createdAt | date('H:i') }}
@@ -26,8 +28,10 @@
     <div class="text-center container col-5">
       <h2>Les derniers événements</h2>
       {% for event in events %}
-      <article class="card mt-3">
+      <article class="card bg-light mt-3">
+        <div class="card-header">
         <h5>{{ event.titre }}</h5>
+      </div>
         <div class="metadata">
           Ecrit le {{ event.createdAt | date('d/m/Y') }} à
           {{ event.createdAt | date('H:i') }}

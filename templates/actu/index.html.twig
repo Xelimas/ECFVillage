@@ -8,7 +8,9 @@
   <div class="text-center container col-4">
     
     <article class="card bg-light mb-3 mt-3">
+      <div class="card-header">
       <h5>{{ actu.titre }}</h5>
+    </div>
       <div class="metadata">
         Ecrit le {{ actu.createdAt | date('d/m/Y') }} à
         {{ actu.createdAt | date('H:i') }}
